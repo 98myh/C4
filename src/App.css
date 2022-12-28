@@ -1,38 +1,256 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: "Nanum Gothic", "맑은 고딕", Dotum, "돋움", Helvetica, sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+header{
+  padding: 30px;
   color: white;
+  background-color: #1350b7;
+}
+.main_img_box{
+  position: relative;
+  background-image: url(../public/images/deu_map.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  min-height: 900px;
 }
 
-.App-link {
-  color: #61dafb;
+.main_img_box img{
+  width: 100%;
+  z-index: 0.1;
+}
+.building{
+  padding: 1px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  border-radius: 2em;
+  z-index: 1;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 11px;
+  font-weight: 900;
+}
+.build_name{
+  display: none;
+}
+.building:hover .build_num{
+  display: none;
+}
+.building:hover .build_name{
+  display: block;
+}
+.building:hover{
+  width: 80px;
+}
+.area{
+  padding: 1px;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 2em;
+  z-index: 1;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid blue;
+  font-size: 11px;
+  font-weight: 900;
+  color: blue;
+}
+.area_name{
+  display: none;
+}
+.area:hover .area_num{
+  display: none;
+}
+.area:hover .area_name{
+  display: block;
+}
+.area:hover{
+  width: 72px;
+}
+.check_point{
+  padding: 1px;
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: red;
+  border-radius: 2em;
+  z-index: 1;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 11px;
+  font-weight: 900;
+}
+.check_point:hover{
+  transform: scale(1.5);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.num1{
+  top: 10%;
+  right: 15%;
+}
+.num2{
+  top: 8%;
+  right: 23%;
+}
+.num3{
+  top: 12%;
+  right: 8%;
+}
+.num5{
+  top: 18%;
+  right: 4%;
+}
+.num6{
+  top: 13%;
+  right: 24%;
+}
+.num7{
+  top: 18%;
+  right: 24%;
+}
+.num8{
+  top: 24%;
+  right: 29%;
+}
+.num9{
+  top: 15%;
+  right: 35%;
+}
+.num10{
+  top: 18%;
+  right: 40%;
+}
+.num11{
+  top: 22%;
+  right: 49%;
+}
+.num12{
+  top: 25%;
+  right: 36%;
+}
+.num13{
+  top: 35%;
+  right: 20%;
+}
+.num14{
+  top: 35%;
+  right: 8%;
+}
+.num15{
+  top: 45%;
+  right: 21%;
+}
+.num16{
+  top: 58%;
+  right: 23%;
+}
+.num17{
+  top: 73%;
+  right: 31%;
+}
+.num18{
+  top: 45%;
+  right: 48%;
+}
+.num19{
+  top: 58%;
+  right: 48%;
+}
+.num20{
+  top: 58%;
+  right: 62%;
+}
+.num21{
+  top: 74%;
+  right: 70%;
+}
+.num22{
+  top: 45%;
+  right: 66%;
+}
+.num23{
+  top: 68%;
+  right: 85%;
+}
+.num24{
+  top: 11%;
+  right: 84%;
+}
+.num25{
+  top: 11%;
+  right: 58%;
+}
+.num26{
+  top: 23%;
+  right: 19%;
+}
+.numA{
+  top: 5%;
+  right:14%;
+}
+.numB{
+  top: 16%;
+  right:69%;
+}
+.numC{
+  top: 17%;
+  right:14%;
+}
+.numD{
+  top: 20%;
+  right:16%;
+}
+.numE{
+  top: 19%;
+  right:29%;
+}
+.numF{
+  top: 33%;
+  right:11%;
+}
+.numG{
+  top: 17%;
+  right:78%;
+}
+.numH{
+  top: 93%;
+  right:41%;
+}
+.numI{
+  top: 96%;
+  right:43%;
+}
+#check1{
+  top: 65%;
+  right: 36%;
+}
+#check2{
+  top: 31%;
+  right: 24%;
+}
+#check3{
+  top: 14%;
+  right: 18%;
+}
+
+footer {
+  height: 5%;
+  width: 100%;
+  font-size: 13px;
+  box-sizing: border-box;
+  background-color: #525b69;
+  color: #b8bdc6;
+  padding: 15px 0 25px;
+  text-align: center;
 }
