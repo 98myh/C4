@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Kakao from "./components/Kakao";
+import Loadmap from "./pages/Loadmap";
 import Main from "./pages/Main";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/kakao" element={<Kakao />} />
+        <Route path="/loadmap" element={<Loadmap />} />
       </Routes>
     </div>
   );
