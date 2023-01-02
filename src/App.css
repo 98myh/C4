@@ -8,24 +8,11 @@
 }
 .home{
   min-height: 900px;
-  position: relative;
   opacity: 1;
   z-index: 1;
-  background-color: rgb(28, 0, 62);;
+  background-color: rgb(2, 32, 79);;
 }
-/* .home::before{
-  content: "";
-  background-image: url(../public/images/deu.jpg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0.5;
-  z-index: 0.1;
-} */
+
 
 
 header{
@@ -35,7 +22,6 @@ header{
   text-align: center;
   align-items: center;
   background-color: #859bc6;
-  position: relative;
 }
 
 .deu_logo{
@@ -47,11 +33,10 @@ header{
 
 
 .logobox{
-  padding: 3em 0;
+  padding: 4em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
 }
 .sub_logo_box{
   width: 650px;
@@ -78,7 +63,7 @@ header{
   font-weight: 900;
   height: 40px;
   border-radius: 10px;
-  padding: 8px;
+  padding: 10px;
   outline: none;
   border: none;
   background: #3f51b5;
@@ -319,6 +304,32 @@ header{
   right: 18%;
 }
 
+.c_info{
+  margin: 10px 0 10px 60px;
+  padding: 30px 120px;
+}
+.c_info h2{
+  margin-bottom: 20px;
+}
+.c_line{
+  display: inline-block;
+  width: 220px;
+}
+.c_detail{
+  display: flex;
+  margin-bottom: 12px;
+}
+.c_num_box{
+  width: 30px;
+  height: 22px;
+  background-color: #3f51b5;
+  text-align: center;
+  color: white;
+  margin-right: 1px;
+  border-radius: 3px;
+}
+
+
 footer {
   height: 5%;
   width: 100%;
@@ -328,5 +339,4 @@ footer {
   color: #b8bdc6;
   padding: 15px 0 25px;
   text-align: center;
-  position: relative;
 }

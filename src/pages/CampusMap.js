@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import CampusInfo from "../components/CampusInfo";
 import Footer from "../components/Footer";
 import Head from "../components/Head";
 
@@ -252,6 +253,7 @@ const CampusMap = () => {
         <button className="check_point" id="check2"></button>
         <button className="check_point" id="check3"></button>
       </div>
+      <CampusInfo />
       <Footer />
     </div>
   );
