@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Head from "../components/Head";
 
-const Main = () => {
+const CampusMap = () => {
   const navigate = useNavigate();
   const goLoadmap = (lat, lon, p_id) => {
     navigate("/loadmap", { state: { lat: lat, lon: lon, p_id: p_id } });
   };
   return (
     <div>
-      <Head />
+      <Head title=" - GuiDEU 2.0 -" />
       <div className="main_img_box">
         <button
           className="building num1"
@@ -257,4 +257,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default CampusMap;

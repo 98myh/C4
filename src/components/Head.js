@@ -1,9 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
-const Head = () => {
+const Head = ({ title }) => {
+  const navigate = useNavigate();
+  const goHome = () => {
+    navigate("/");
+  };
   return (
     <header>
-      <h1>동의대학교 가이드 - GuiDEU 2.0</h1>
+      <img className="deu_logo" src="../images/logo.png" onClick={goHome}></img>
+      {title !== "동의대학교" ? <h1>{title}</h1> : null}
     </header>
   );
 };

@@ -21,7 +21,7 @@ const Loadmap = () => {
 
   return (
     <div>
-      <Head />
+      <Head title=" - GuiDEU 2.0 -" />
       {state.lat !== 1 && state.lat !== 2 ? (
         <div
           id="roadview"

@@ -30,7 +30,19 @@
     <title>C4-동의대 가이드</title>
   </head>
   <body>
+    <script src="./client.bundle?platform=vr"></script>
+    <script>
+      // Initialize the React VR application
+      ReactVR.init(
+        // When you're ready to deploy your app, update this line to point to
+        // your compiled index.bundle.js
+        '../index.vr.bundle?platform=vr&dev=true',
+        // Attach it to the body tag
+        document.body
+      );
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    
     <div id="root"></div>
     <!--
       This HTML file is a template.
