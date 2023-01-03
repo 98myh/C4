@@ -21,7 +21,7 @@ const LogoBox = () => {
       <div className="sub_logo_box">
         <img
           className="mini_logo mini_guideu"
-          src="../images/guidue_logo.png"
+          src="../images/guideu_logo.png"
         ></img>
         <button className="go_btn" onClick={goCampusmap}>
           동의대학교 가이드(GuiDEU)로 이동
