@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Head from "../components/Head";
 
@@ -7,14 +7,41 @@ const { kakao } = window;
 
 const Loadmap = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
+  const b_name = state.b_name;
+  console.log(b_name);
+  const goInto = (b_name) => {
+    navigate("/deu_building", { state: { b_name: b_name } });
+  };
+
+  //건물 입장 버튼
+  const btn = document.createElement("button");
+  btn.className = "build_into";
+  btn.textContent = b_name + "\n입장하기";
+  btn.onclick = function () {
+    goInto(b_name);
+  };
+
   useEffect(() => {
     if (state.lat !== 1 && state.lat !== 2) {
-      const roadviewContainer = document.getElementById("roadview"); //로드뷰를 표시할 div
-      const roadview = new kakao.maps.Roadview(roadviewContainer); //로드뷰 객체
-      const position = new kakao.maps.LatLng(state.lat, state.lon);
-      const roadviewClient = new kakao.maps.RoadviewClient(); //좌표로부터 로드뷰 파노ID를 가져올 로드뷰 helper객체
-      roadviewClient.getNearestPanoId(position, 50, function (panoId) {
-        roadview.setPanoId(panoId, position); //panoId와 중심좌표를 통해 로드뷰 실행
+      const rvContainer = document.getElementById("roadview"); //로드뷰를 표시할 div
+      const rv = new kakao.maps.Roadview(rvContainer); //로드뷰 객체
+      const rvPosition = new kakao.maps.LatLng(state.lat, state.lon);
+      const rc = new kakao.maps.RoadviewClient(); //좌표로부터 로드뷰 파노ID를 가져올 로드뷰 helper객체
+      rc.getNearestPanoId(rvPosition, 50, function (panoId) {
+        rv.setPanoId(panoId, rvPosition); //panoId와 중심좌표를 통해 로드뷰 실행
+      });
+
+      kakao.maps.event.addListener(rv, "init", function () {
+        //로드뷰의 viewpoint값을 적절하게 이동시킵니다.
+        rv.setViewpoint(new kakao.maps.Viewpoint(state.rot, 0, -3));
+
+        //커스텀 오버레이를 로드뷰 위에 올립니다.
+        new kakao.maps.CustomOverlay({
+          map: rv,
+          position: new kakao.maps.Viewpoint(state.rot, 0, -3),
+          content: btn,
+        });
       });
     }
   });
@@ -35,8 +62,6 @@ const Loadmap = () => {
           src="https://www.google.com/maps/embed?pb=!4v1672381689876!6m8!1m7!1sCAoSLEFGMVFpcFBMQVpQbUdpa09zWndjZEZ2RV9JdHBZSnlfRHI2WVVCQUlzZ05B!2m2!1d35.140508!2d129.0334444!3f173.05088019476887!4f0!5f0.7820865974627469"
           width="100%"
           height="1000px"
-          //style="border:0;"
-          //allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
@@ -45,8 +70,6 @@ const Loadmap = () => {
           src="https://www.google.com/maps/embed?pb=!4v1672383987820!6m8!1m7!1sCAoSLEFGMVFpcE1pMGRwZExjM2doWGdPODRXLTVIQnRsVEE4WkFrQ3M4NzVmTjNt!2m2!1d35.1409414!2d129.0334816!3f11.545671490160487!4f-34.514596514126595!5f0.7820865974627469"
           width="100%"
           height="1000px"
-          //style="border:0;"
-          //allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
