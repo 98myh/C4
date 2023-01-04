@@ -318,16 +318,16 @@ header{
   white-space: pre-line;
   width: 80px;
   height: 40px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.594);
   border: none;
   font-weight: 900;
-  color: rgb(0, 255, 64);
+  color: rgb(50, 15, 227);
   cursor: pointer;
   border-radius: 5px;
 }
 .build_into:hover{
-  background-color: rgba( 255, 255, 255, 0.6 );
-  color: #3f51b5;
+  background-color: rgba(255, 255, 255, 0.849);
+  color: #2437a0;
 }
 
 /*CampusDetail*/
@@ -368,14 +368,16 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 }
 .build_info_left{
   background-color: #3f51b5;
-  flex-grow: 3;
+  flex-basis: 70%;
 }
 .build_info_right{
   background-color: aqua;
-  flex-grow: 1;
+  flex-basis: 30%;
+  word-break: break-all;
 }
 
 /*footer*/

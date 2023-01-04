@@ -12,8 +12,8 @@ const Building = () => {
       <Head title={state.b_name} />
       <div className="build_wrap">
         <div className="build_main">
-          <BuildImg />
-          <BuildInfo />
+          <BuildImg b_name={state.b_name} />
+          <BuildInfo b_name={state.b_name} />
         </div>
       </div>
       <Footer />

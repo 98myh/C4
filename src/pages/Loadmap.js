@@ -35,7 +35,18 @@ const Loadmap = () => {
       kakao.maps.event.addListener(rv, "init", function () {
         //로드뷰의 viewpoint값을 적절하게 이동시킵니다.
         rv.setViewpoint(new kakao.maps.Viewpoint(state.rot, 0, -3));
-
+        if (b_name === "지천관") {
+          //지천관 이미지
+          const image = document.createElement("img");
+          image.className = "jicheon_img";
+          image.src = "../images/jicheon.jpg";
+          //image.style.width = "500px";
+          new kakao.maps.CustomOverlay({
+            map: rv,
+            position: new kakao.maps.Viewpoint(state.rot, 0, -3),
+            content: image,
+          });
+        }
         //커스텀 오버레이를 로드뷰 위에 올립니다.
         new kakao.maps.CustomOverlay({
           map: rv,

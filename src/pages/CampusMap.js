@@ -140,7 +140,7 @@ const CampusMap = () => {
         </button>
         <button
           className="building num19"
-          onClick={() => goLoadmap(35.144127, 129.035005, "지천관")}
+          onClick={() => goLoadmap(35.144127, 129.035005, 0, "지천관")}
         >
           <p className="build_num">19</p>
           <p className="build_name">지천관</p>
