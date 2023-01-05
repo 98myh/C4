@@ -5,8 +5,8 @@ const BuildDetail = ({ b_detail }) => {
     <div>
       {b_detail.map((floor) => {
         return (
-          <div>
-            <p>{floor.id}층</p>
+          <div key={floor.id}>
+            <h4>{floor.id}층</h4>
             <p>{floor.floorInfo}</p>
           </div>
         );
