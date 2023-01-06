@@ -1,3 +1,30 @@
+/*주영이가 한거*/
+.build_inner_btn{
+  /* background-color: #ffffff;
+  border: 2px solid #3f51b5;
+  border-radius: 5px;
+   */
+  white-space: pre-line;
+  width: 80px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.594);
+  border: none;
+  font-weight: 900;
+  color: grey;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.build_inner_btn:hover{
+  color: rgb(0, 38, 206);
+  text-decoration: underline;
+}
+
+/*영현 테스트*/
+
+
+/**/
+
 * {
   margin: 0;
   padding: 0;
@@ -389,6 +416,7 @@ header{
   position: relative;
 }
 .build_inner_btn{
+  cursor: pointer;
   position: absolute;
 }
 .up_btn{
@@ -407,7 +435,27 @@ header{
   bottom: 5%;
   left: 50%;
 }
+.cross_btn{
+  top: 45%;
+  left: 25%;
+}
+.front_btn{
+  left: 50%;
+  top:40%;
+}
+.back_btn{
+  left: 50%;
+  bottom: 25%;
+}
 
+/*BuildDetail*/
+.floor{
+  background-color: white;
+}
+
+.floor_info{
+  font-size: 15px;
+}
 
 /*footer*/
 footer {
