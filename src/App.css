@@ -396,7 +396,7 @@ header{
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  padding: 50px;
+  margin: 20px 0;
   
 }
 .build_info_left{
@@ -409,6 +409,9 @@ header{
 .build_info_right{
   flex-basis: 30%;
   word-break: break-all;
+}
+.build_info_right h1{
+  margin-bottom: 5px;
 }
 
 /*BuildImg*/
@@ -450,7 +453,8 @@ header{
 
 /*BuildDetail*/
 .floor{
-  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 .floor_info{

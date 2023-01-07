@@ -1,7 +1,7 @@
 import React from "react";
 import BuildDetail from "./BuildDetail";
 
-const BuildInfo = ({ b_name, floor }) => {
+const BuildInfo = ({ b_name, floor, bpf }) => {
   var b_detail_info;
   if (b_name === "정보공학관") {
     b_detail_info = [

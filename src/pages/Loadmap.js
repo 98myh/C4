@@ -9,7 +9,6 @@ const Loadmap = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const b_name = state.b_name;
-  console.log(b_name);
   const goInto = (b_name) => {
     navigate("/deu_building", { state: { b_name: b_name } });
   };

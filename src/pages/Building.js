@@ -8,8 +8,8 @@ import Head from "../components/Head";
 const Building = () => {
   /*test*/
   const [floor, setFloor] = useState("1");
+
   const pf = (f) => {
-    console.log(f);
     setFloor(f);
   };
 

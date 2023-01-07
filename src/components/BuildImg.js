@@ -14,11 +14,13 @@ const BuildImg = ({ b_name, pf }) => {
   const ClickUp = () => {
     setBuildName(b_name + (parseInt(floor) + 1));
     setFloor((floor) => floor + 1);
+    setN(() => 1);
   };
 
   const ClickDown = () => {
     setBuildName(b_name + (parseInt(floor) - 1));
     setFloor((floor) => floor - 1);
+    setN(() => 1);
   };
 
   const ClickLeft = () => {
