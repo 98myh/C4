@@ -1,6 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faAnglesUp,
+  faAnglesDown,
+  faAngleUp,
+  faAngleDown,
+} from "@fortawesome/free-solid-svg-icons";
 
-const BuildImg = ({ b_name, pf }) => {
+const BuildImg = ({ b_name, pf, bf }) => {
+  //bf는 buildDetail에서 클릭한 층 을 BuildInfo를 거쳐
+  //Building.js(부모) 컴포넌트로 넘겨줘 BuildImg에서 받은것
+  //즉 클릭한 층수를 받아와서 층 수 이미지를 보여주기 위함
+
   var mf;
   if (b_name === "정보공학관") {
     mf = 9;
@@ -9,11 +22,13 @@ const BuildImg = ({ b_name, pf }) => {
   const [buildName, setBuildName] = useState(b_name + floor); //이미지 바꾸기
   const [n, setN] = useState(1);
 
+  //부모 요소(Building.js)에 props 넘겨주기
   pf(floor);
+  //
 
   const ClickUp = () => {
-    setBuildName(b_name + (parseInt(floor) + 1));
-    setFloor((floor) => floor + 1);
+    setBuildName(() => b_name + (parseInt(floor) + 1));
+    setFloor(() => floor + 1);
     setN(() => 1);
   };
 
@@ -69,14 +84,21 @@ const BuildImg = ({ b_name, pf }) => {
     setN(n - 9);
   };
 
-  useEffect(() => {}, [floor, buildName]);
+  useEffect(() => {
+    //현재층과 클릭한 층이 다르면 클릭한 층으로 이동
+    if (floor !== bf && bf !== 0) {
+      setBuildName(b_name + bf);
+      setFloor(() => bf);
+      setN(() => 1);
+    }
+  }, [floor, buildName, bf]);
 
   return (
     <div className="build_info_left">
       <div className="build_inner_wrap">
         {floor !== mf ? (
           <button className="build_inner_btn up_btn" onClick={() => ClickUp()}>
-            다음층으로
+            <FontAwesomeIcon icon={faAnglesUp} size="2x" />
           </button>
         ) : null}
         {buildName === "정보공학관1" ? (
@@ -84,7 +106,11 @@ const BuildImg = ({ b_name, pf }) => {
             className="build_inner_btn cross_btn"
             onClick={() => ClickCross()}
           >
-            대각선으로
+            <FontAwesomeIcon
+              icon={faAngleLeft}
+              className="fa-rotate-45"
+              size="2x"
+            />
           </button>
         ) : null}
         {buildName === "정보공학관3" ? (
@@ -92,7 +118,7 @@ const BuildImg = ({ b_name, pf }) => {
             className="build_inner_btn front_btn"
             onClick={() => ClickFront()}
           >
-            앞으로
+            <FontAwesomeIcon icon={faAngleUp} size="2x" />
           </button>
         ) : null}
         {buildName === "정보공학관3-10" ? (
@@ -100,14 +126,14 @@ const BuildImg = ({ b_name, pf }) => {
             className="build_inner_btn back_btn"
             onClick={() => ClickBack()}
           >
-            뒤로
+            <FontAwesomeIcon icon={faAngleDown} size="2x" />
           </button>
         ) : null}
         <button
           className="build_inner_btn left_btn"
           onClick={() => ClickLeft()}
         >
-          왼쪽으로
+          <FontAwesomeIcon icon={faAngleLeft} size="2x" />
         </button>
         <img
           src={"../images/" + b_name + "/" + buildName + ".jpg"}
@@ -117,7 +143,7 @@ const BuildImg = ({ b_name, pf }) => {
           className="build_inner_btn right_btn"
           onClick={() => ClickRight()}
         >
-          오른쪽으로
+          <FontAwesomeIcon icon={faAngleRight} size="2x" />
         </button>
 
         {floor !== 1 ? (
@@ -125,7 +151,7 @@ const BuildImg = ({ b_name, pf }) => {
             className="build_inner_btn down_btn"
             onClick={() => ClickDown()}
           >
-            아래층으로
+            <FontAwesomeIcon icon={faAnglesDown} size="2x" />
           </button>
         ) : null}
       </div>

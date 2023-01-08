@@ -1,8 +1,7 @@
 import react, { useEffect, useState } from "react";
 
-const BuildDetail = ({ b_detail, f }) => {
+const BuildDetail = ({ b_detail, f, bdf }) => {
   const [fsty, setFsty] = useState(f);
-
   useEffect(() => {
     if (document.getElementById(fsty) !== null && f !== null) {
       if (parseInt(f) === parseInt(document.getElementById(fsty).id)) {
@@ -19,7 +18,7 @@ const BuildDetail = ({ b_detail, f }) => {
   }, [f]);
 
   const ClickTest = (id) => {
-    console.log(id);
+    bdf(id);
   };
 
   return (

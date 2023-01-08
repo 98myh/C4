@@ -1,7 +1,7 @@
 import React from "react";
 import BuildDetail from "./BuildDetail";
 
-const BuildInfo = ({ b_name, floor, bpf }) => {
+const BuildInfo = ({ b_name, floor, bdf }) => {
   var b_detail_info;
   if (b_name === "정보공학관") {
     b_detail_info = [
@@ -56,7 +56,7 @@ const BuildInfo = ({ b_name, floor, bpf }) => {
   return (
     <div className="build_info_right ">
       <h1>{b_name}</h1>
-      <BuildDetail b_detail={b_detail_info} f={floor} />
+      <BuildDetail b_detail={b_detail_info} f={floor} bdf={bdf} />
     </div>
   );
 };

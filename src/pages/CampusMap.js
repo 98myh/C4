@@ -205,7 +205,7 @@ const CampusMap = () => {
         </button>
         <button
           className="area numB"
-          onClick={() => goLoadmap(35.142481, 129.036661, 0, "효민축구장")}
+          onClick={() => goLoadmap(35.142481, 129.036661, 80, "효민축구장")}
         >
           <p className="area_num">B</p>
           <p className="area_name">효민축구장</p>
@@ -226,35 +226,35 @@ const CampusMap = () => {
         </button>
         <button
           className="area numE"
-          onClick={() => goLoadmap(35.140579, 129.034439, 0, "정심정")}
+          onClick={() => goLoadmap(35.140579, 129.034439, 120, "정심정")}
         >
           <p className="area_num">E</p>
           <p className="area_name">정심정</p>
         </button>
         <button
           className="area numF"
-          onClick={() => goLoadmap(35.14187, 129.032414, 0, "야외음악당")}
+          onClick={() => goLoadmap(35.14187, 129.032414, 80, "야외음악당")}
         >
           <p className="area_num">F</p>
           <p className="area_name">야외음악당</p>
         </button>
         <button
           className="area numG"
-          onClick={() => goLoadmap(35.143384, 129.037745, 0, "테니스장")}
+          onClick={() => goLoadmap(35.143384, 129.037745, 120, "테니스장")}
         >
           <p className="area_num">G</p>
           <p className="area_name">테니스장</p>
         </button>
         <button
           className="area numH"
-          onClick={() => goLoadmap(35.145154, 129.034311, 0, "건학이념비")}
+          onClick={() => goLoadmap(35.145154, 129.034311, -100, "건학이념비")}
         >
           <p className="area_num">H</p>
           <p className="area_name">건학이념비</p>
         </button>
         <button
           className="area numI"
-          onClick={() => goLoadmap(35.145855, 129.034364, 0, "정문")}
+          onClick={() => goLoadmap(35.146049, 129.034313, 180, "정문")}
         >
           <p className="area_num">I</p>
           <p className="area_name">정문</p>
@@ -262,10 +262,18 @@ const CampusMap = () => {
         <button
           className="check_point"
           id="check1"
-          onClick={() => goLoadmap(35.143985, 129.034286)}
+          onClick={() => goLoadmap(35.143985, 129.034286, 140, null)}
         ></button>
-        <button className="check_point" id="check2"></button>
-        <button className="check_point" id="check3"></button>
+        <button
+          className="check_point"
+          id="check2"
+          onClick={() => goLoadmap(35.141387, 129.034028, 0, null)}
+        ></button>
+        <button
+          className="check_point"
+          id="check3"
+          onClick={() => goLoadmap(35.139395, 129.03373, 0, null)}
+        ></button>
       </div>
       <CampusInfo />
       <Footer />
