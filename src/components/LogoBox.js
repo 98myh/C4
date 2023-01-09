@@ -10,7 +10,11 @@ const LogoBox = () => {
   return (
     <div className="logobox">
       <div className="sub_logo_box">
-        <img className="mini_logo mini_main" src="../images/main.jpg"></img>
+        <img
+          className="mini_logo mini_main"
+          src="../images/main.jpg"
+          alt="메인페이지로 이동"
+        ></img>
         <button
           className="go_btn"
           onClick={() => (window.location.href = "https://www.deu.ac.kr/www")}
@@ -22,13 +26,18 @@ const LogoBox = () => {
         <img
           className="mini_logo mini_guideu"
           src="../images/guideu_logo.png"
+          alt="가이드로 이동"
         ></img>
         <button className="go_btn" onClick={goCampusmap}>
           동의대학교 가이드(GuiDEU)로 이동
         </button>
       </div>
       <div className="sub_logo_box">
-        <img className="mini_logo mini_door" src="../images/door.png"></img>
+        <img
+          className="mini_logo mini_door"
+          src="../images/door.png"
+          alt="door로 이동"
+        ></img>
         <button
           className="go_btn"
           onClick={() =>
@@ -39,7 +48,11 @@ const LogoBox = () => {
         </button>
       </div>
       <div className="sub_logo_box">
-        <img className="mini_logo mini_dap" src="../images/dappage.png"></img>
+        <img
+          className="mini_logo mini_dap"
+          src="../images/dappage.png"
+          alt="dap으로 이동"
+        ></img>
         <button
           className="go_btn"
           onClick={() =>

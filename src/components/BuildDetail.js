@@ -1,4 +1,4 @@
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const BuildDetail = ({ b_detail, f, bdf }) => {
   const [fsty, setFsty] = useState(f);
@@ -15,7 +15,7 @@ const BuildDetail = ({ b_detail, f, bdf }) => {
         document.getElementById(f).style.color = "white";
       }
     }
-  }, [f]);
+  }, [f, fsty]);
 
   const ClickTest = (id) => {
     bdf(id);

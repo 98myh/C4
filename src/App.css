@@ -26,7 +26,6 @@
 
 /*영현 테스트*/
 
-
 /**/
 
 * {
@@ -406,6 +405,8 @@ header{
 .build_info_left{
   flex-basis: 70%;
   margin-right: 30px;
+  display: flex;
+  flex-direction: column;
 }
 .build_info_left img{
   width: 100%;
@@ -419,6 +420,22 @@ header{
 }
 
 /*BuildImg*/
+.return_page{
+  margin: 5px;
+  width: 85px;
+  height: 35px;
+  font-size: 15px;
+  background-color: rgb(229, 46, 9);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.return_page:hover{
+  background-color: rgb(255, 42, 0);
+}
+
 .build_inner_wrap{
   position: relative;
 }
@@ -426,6 +443,8 @@ header{
   cursor: pointer;
   position: absolute;
 }
+
+
 .up_btn{
   top: 5%;
   left: 50%;
@@ -453,6 +472,20 @@ header{
 .back_btn{
   left: 50%;
   bottom: 25%;
+}
+
+.roomNumber{
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 30px;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  background-color: #0073df;
+  color: white;
 }
 
 /*BuildDetail*/

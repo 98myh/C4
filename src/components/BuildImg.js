@@ -7,7 +7,9 @@ import {
   faAnglesDown,
   faAngleUp,
   faAngleDown,
+  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const BuildImg = ({ b_name, pf, bf }) => {
   //bf는 buildDetail에서 클릭한 층 을 BuildInfo를 거쳐
@@ -15,29 +17,54 @@ const BuildImg = ({ b_name, pf, bf }) => {
   //즉 클릭한 층수를 받아와서 층 수 이미지를 보여주기 위함
 
   var mf;
+  var roomNum;
   if (b_name === "정보공학관") {
-    mf = 9;
+    mf = 9; //마지막 층
+    roomNum = [
+      ["109호 ~ 110호", "104호 ~ 108호", "101호 ~ 103호 , 111호 ~ 115호"],
+      ["GS25 편의점 , 204호 ~ 210호", "교직원 식당"],
+      [
+        "305호 ~ 310호",
+        "301호 ~ 304호 , 311호 ~ 318호",
+        "323호 ~ 324호",
+        "319호 ~ 322호",
+      ],
+      ["401호 ~ 408호 , 416호 ~ 419호", "410호 ~ 415호"],
+      ["510호 ~ 517호", "501호 ~ 508호 , 518호 ~ 521호"],
+      ["610호 ~ 615호 ", "601호 ~ 608호 , 616호 ~ 620호"],
+      ["710호 ~ 716호", "701호 ~ 708호 , 717호 ~ 721호"],
+      ["810호 ~ 816호", "801호 ~ 808호 , 817호 ~ 823호"],
+      ["910호 ~ 916호", "901호 ~ 908호 , 917호 ~ 920호"],
+    ];
   }
   const [floor, setFloor] = useState(1);
   const [buildName, setBuildName] = useState(b_name + floor); //이미지 바꾸기
   const [n, setN] = useState(1);
 
+  const navigate = useNavigate(); //뒤로가기
+  const goBack = () => {
+    navigate(-1);
+  };
+
   //부모 요소(Building.js)에 props 넘겨주기
   pf(floor);
   //
 
+  //다음 층으로
   const ClickUp = () => {
     setBuildName(() => b_name + (parseInt(floor) + 1));
     setFloor(() => floor + 1);
     setN(() => 1);
   };
 
+  //아래층으로
   const ClickDown = () => {
     setBuildName(b_name + (parseInt(floor) - 1));
     setFloor((floor) => floor - 1);
     setN(() => 1);
   };
 
+  //왼쪽으로
   const ClickLeft = () => {
     if (n === 1) {
       setBuildName(b_name + floor + -1);
@@ -54,6 +81,7 @@ const BuildImg = ({ b_name, pf, bf }) => {
     }
   };
 
+  //오른쪽으로
   const ClickRight = () => {
     if (n === 0) {
       setBuildName(b_name + floor);
@@ -70,18 +98,26 @@ const BuildImg = ({ b_name, pf, bf }) => {
     }
   };
 
+  //대각석으로
   const ClickCross = () => {
     setBuildName(b_name + floor + -3);
+    setN(n + 2);
   };
 
+  //앞으로
   const ClickFront = () => {
     setBuildName(b_name + floor + -10);
     setN(n + 9);
   };
 
+  //뒤로
   const ClickBack = () => {
     setBuildName(b_name + floor);
-    setN(n - 9);
+    if (n === 10) {
+      setN(n - 9);
+    } else if (n === 3) {
+      setN(n - 2);
+    }
   };
 
   useEffect(() => {
@@ -95,6 +131,10 @@ const BuildImg = ({ b_name, pf, bf }) => {
 
   return (
     <div className="build_info_left">
+      <button className="return_page" onClick={goBack}>
+        <FontAwesomeIcon icon={faRightFromBracket} />
+        &nbsp;나가기
+      </button>
       <div className="build_inner_wrap">
         {floor !== mf ? (
           <button className="build_inner_btn up_btn" onClick={() => ClickUp()}>
@@ -121,7 +161,7 @@ const BuildImg = ({ b_name, pf, bf }) => {
             <FontAwesomeIcon icon={faAngleUp} size="2x" />
           </button>
         ) : null}
-        {buildName === "정보공학관3-10" ? (
+        {n === 10 || n === 3 ? (
           <button
             className="build_inner_btn back_btn"
             onClick={() => ClickBack()}
@@ -129,22 +169,39 @@ const BuildImg = ({ b_name, pf, bf }) => {
             <FontAwesomeIcon icon={faAngleDown} size="2x" />
           </button>
         ) : null}
-        <button
-          className="build_inner_btn left_btn"
-          onClick={() => ClickLeft()}
-        >
-          <FontAwesomeIcon icon={faAngleLeft} size="2x" />
-        </button>
+
+        {n !== 0 && n !== 9 && n !== 3 ? (
+          <button
+            className="build_inner_btn left_btn"
+            onClick={() => ClickLeft()}
+          >
+            <FontAwesomeIcon icon={faAngleLeft} size="2x" />
+          </button>
+        ) : null}
+
+        {n === 0 ? (
+          <p className="roomNumber">{roomNum[parseInt(floor) - 1][n]}</p>
+        ) : n === 1 || n === 10 ? null : n === 2 || n === 3 ? (
+          <p className="roomNumber">{roomNum[parseInt(floor) - 1][n - 1]}</p>
+        ) : n === 9 ? (
+          <p className="roomNumber">{roomNum[parseInt(floor) - 1][n - 7]}</p>
+        ) : n === 11 ? (
+          <p className="roomNumber">{roomNum[parseInt(floor) - 1][n - 8]}</p>
+        ) : (
+          <p className="roomNumber">{roomNum[parseInt(floor) - 1][n - 2]}</p>
+        )}
         <img
           src={"../images/" + b_name + "/" + buildName + ".jpg"}
-          className="build_inner_img"
+          id="build_inner_img"
         />
-        <button
-          className="build_inner_btn right_btn"
-          onClick={() => ClickRight()}
-        >
-          <FontAwesomeIcon icon={faAngleRight} size="2x" />
-        </button>
+        {n !== 2 && n !== 11 && n !== 3 ? (
+          <button
+            className="build_inner_btn right_btn"
+            onClick={() => ClickRight()}
+          >
+            <FontAwesomeIcon icon={faAngleRight} size="2x" />
+          </button>
+        ) : null}
 
         {floor !== 1 ? (
           <button
