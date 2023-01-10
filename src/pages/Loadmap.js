@@ -15,19 +15,6 @@ const Loadmap = () => {
 
   //건물 입장 버튼
   var btn = "";
-  // if (
-  //   b_name === "효민야구장" &&
-  //   b_name === "효민축구장" &&
-  //   b_name === "정심정" &&
-  //   b_name === "야외음악장" &&
-  //   b_name === "테니스장" &&
-  //   b_name === "건학이념비" &&
-  //   b_name === "정문"
-  // ) {
-  //   btn = document.createElement("button");
-  //   btn.className = "build_into";
-  //   btn.textContent = b_name;
-  // }
   if (b_name !== null) {
     btn = document.createElement("button");
     btn.className = "build_into";
