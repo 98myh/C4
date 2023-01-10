@@ -193,6 +193,7 @@ const BuildImg = ({ b_name, pf, bf }) => {
         <img
           src={"../images/" + b_name + "/" + buildName + ".jpg"}
           id="build_inner_img"
+          alt="내부 이미지"
         />
         {n !== 2 && n !== 11 && n !== 3 ? (
           <button
