@@ -161,7 +161,7 @@ const BuildImg = ({ b_name, pf, bf }) => {
         setFloor(() => bf);
         setN(() => 1);
       }
-      await delay(800);
+      await delay(1000);
       setLoading(false);
     };
     rerend();
