@@ -516,3 +516,13 @@ footer {
   padding: 15px 0 25px;
   text-align: center;
 }
+
+
+
+
+.none_image{
+  display: flex;
+  height: 900px;
+  align-items: center;
+  justify-content: center;
+}

@@ -23,7 +23,7 @@ const BuildDetail = ({ b_detail, f, bdf }) => {
 
   return (
     <div>
-      {b_detail.map((floor) => {
+      {b_detail?.map((floor) => {
         return (
           <div
             key={floor.id}
