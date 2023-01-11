@@ -488,6 +488,12 @@ header{
   color: white;
 }
 
+.loading_box{
+  display: flex;
+  justify-content: center;
+}
+
+
 /*BuildDetail*/
 .floor{
   cursor: pointer;
